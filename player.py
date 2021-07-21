@@ -20,7 +20,7 @@ class RandomPlayer(Player):
     def __init__(self):
         super().__init__()
         self.move_dictionary = {"rock": "paper", "paper": "scissors", "scissors": "rock"}
-        self.next_move = self.move()
+        self.next_move = random.choice(self.move_list)
 
     def move(self):
         return random.choice(self.move_list)
@@ -32,11 +32,13 @@ class RandomPlayer(Player):
 class HumanPlayer(Player):
     def move(self):
         while True:
-            user_move = input("rock / parser / scissors\n")
+            user_move = input("rock / paper / scissors\n")
             if user_move in ["rock", "paper", "scissors"]:
-                break
+                return user_move
             print("Wrong Input")
-        return
+
+    def learn(self, my_move, their_move):
+        pass
 
 
 class ReflectPlayer(RandomPlayer):

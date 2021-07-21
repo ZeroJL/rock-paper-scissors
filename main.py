@@ -58,5 +58,5 @@ class Game:
 
 if __name__ == '__main__':
     game = Game(player.HumanPlayer(),
-                random.choice([player.CyclePlayer(), player.ReflectPlayer(), player.RandomPlayer()]))
+                random.choice([player.Player(), player.CyclePlayer(), player.ReflectPlayer(), player.RandomPlayer()]))
     game.play_game()

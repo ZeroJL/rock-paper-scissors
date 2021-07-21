@@ -17,16 +17,33 @@ class Game:
         self.p1 = p1
         self.p2 = p2
 
+    def game_score(self):
+        print("Game Score")
+        print(f"Player 1 - Win: {self.p1.win} Loose: {self.p1.loose} Draw: {self.p1.draw}")
+        print(f"Player 2 - Win: {self.p2.win} Loose: {self.p2.loose} Draw: {self.p1.draw}")
+        if self.p1.win > self.p2.win:
+            print("Winner is Player1!")
+        elif self.p2.win > self.p1.win:
+            print("Winner is Player2!")
+        else:
+            print("Draw! There is no Winner")
+
     def play_round(self):
         move1 = self.p1.move()
         move2 = self.p2.move()
         print(f"Player 1: {move1}  Player 2: {move2}")
         if beats(move1, move2):
             print("Player 1 Win!")
+            self.p1.win += 1
+            self.p2.loose += 1
         elif beats(move2, move1):
             print("Player 2 Win!")
+            self.p2.win += 1
+            self.p1.loose += 1
         else:
             print("Draw!")
+            self.p1.draw += 1
+            self.p2.draw += 1
         self.p1.learn(move1, move2)
         self.p2.learn(move2, move1)
 
@@ -35,6 +52,7 @@ class Game:
         for round in range(3):
             print(f"Round {round}:")
             self.play_round()
+        self.game_score()
         print("Game over!")
 
 

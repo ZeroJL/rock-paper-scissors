@@ -1,18 +1,9 @@
+import player
+import random
 """This program plays a game of Rock, Paper, Scissors between two Players,
 and reports both Player's scores each round."""
-
-moves = ['rock', 'paper', 'scissors']
-
 """The Player class is the parent class for all of the Players
 in this game"""
-
-
-class Player:
-    def move(self):
-        return 'rock'
-
-    def learn(self, my_move, their_move):
-        pass
 
 
 def beats(one, two):
@@ -30,6 +21,12 @@ class Game:
         move1 = self.p1.move()
         move2 = self.p2.move()
         print(f"Player 1: {move1}  Player 2: {move2}")
+        if beats(move1, move2):
+            print("Player 1 Win!")
+        elif beats(move2, move1):
+            print("Player 2 Win!")
+        else:
+            print("Draw!")
         self.p1.learn(move1, move2)
         self.p2.learn(move2, move1)
 
@@ -42,5 +39,6 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(Player(), Player())
+    game = Game(player.HumanPlayer(),
+                random.choice([player.CyclePlayer(), player.ReflectPlayer(), player.RandomPlayer()]))
     game.play_game()

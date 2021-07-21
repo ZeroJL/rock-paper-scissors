@@ -35,7 +35,7 @@ class HumanPlayer(Player):
             user_move = input("rock / paper / scissors\n")
             if user_move in ["rock", "paper", "scissors"]:
                 return user_move
-            print("Wrong Input")
+            print("Try again")
 
     def learn(self, my_move, their_move):
         pass

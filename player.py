@@ -25,4 +25,24 @@ class RandomPlayer(Player):
 class HumanPlayer(Player):
 
     def move(self):
+        while True:
+            user_move = input("rock / parser / scissors\n")
+            if user_move in ["rock", "paper", "scissors"]:
+                break
         return
+
+
+class ReflectPlayer(RandomPlayer):
+    def learn(self, my_move, their_move):
+        pass
+
+
+class CyclePlayer(RandomPlayer):
+    def __init__(self):
+        super().__init__()
+        self.move_dictionary = {"rock": "paper", "paper": "scissors", "scissors": "rock"}
+        self.next_move = super().move()
+
+    def learn(self, my_move, their_move):
+        self.next_move = self.move_dictionary.get(my_move)
+        print(self.next_move)

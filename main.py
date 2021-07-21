@@ -47,10 +47,10 @@ class Game:
         self.p1.learn(move1, move2)
         self.p2.learn(move2, move1)
 
-    def play_game(self):
+    def play_game(self, rounds):
         print("Game start!")
-        for round in range(3):
-            print(f"Round {round}:")
+        for round in range(rounds):
+            print(f"Round {round + 1}:")
             self.play_round()
         self.game_score()
         print("Game over!")
@@ -59,4 +59,4 @@ class Game:
 if __name__ == '__main__':
     game = Game(player.HumanPlayer(),
                 random.choice([player.Player(), player.CyclePlayer(), player.ReflectPlayer(), player.RandomPlayer()]))
-    game.play_game()
+    game.play_game(4)

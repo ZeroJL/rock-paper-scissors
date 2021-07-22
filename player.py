@@ -52,6 +52,13 @@ class OppositePlayer(RandomPlayer):
 
 
 class CyclePlayer(RandomPlayer):
+    def __init__(self):
+        super().__init__()
+        self.round = self.move_list.index(self.next_move)
+
     def learn(self, my_move, their_move):
-        self.next_move = self.move_dictionary.get(my_move)
+        self.next_move = self.move_list[self.round]
+        self.round += 1
+        if self.round > len(self.move_list):
+            self.round = 0
 

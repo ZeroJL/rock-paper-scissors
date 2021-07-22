@@ -1,5 +1,6 @@
 import player
 import random
+
 """This program plays a game of Rock, Paper, Scissors between two Players,
 and reports both Player's scores each round."""
 """The Player class is the parent class for all of the Players
@@ -61,5 +62,7 @@ class Game:
 
 if __name__ == '__main__':
     game = Game(player.HumanPlayer(),
-                random.choice([player.Player(), player.CyclePlayer(), player.OppositePlayer(), player.RandomPlayer()]))
+                random.choice([player.Player(), player.CyclePlayer(),
+                               player.OppositePlayer(), player.RandomPlayer(),
+                               player.ReflectPlayer()]))
     game.play_game(4)

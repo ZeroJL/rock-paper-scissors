@@ -23,10 +23,10 @@ class RandomPlayer(Player):
         self.next_move = random.choice(self.move_list)
 
     def move(self):
-        return random.choice(self.move_list)
+        return self.next_move
 
     def learn(self, my_move, their_move):
-        pass
+        self.next_move = random.choice(self.move_list)
 
 
 class HumanPlayer(Player):
@@ -45,13 +45,8 @@ class OppositePlayer(RandomPlayer):
     def learn(self, my_move, their_move):
         self.next_move = self.move_dictionary.get(their_move)
 
-    def move(self):
-        return self.next_move
-
 
 class CyclePlayer(RandomPlayer):
     def learn(self, my_move, their_move):
         self.next_move = self.move_dictionary.get(my_move)
 
-    def move(self):
-        return self.next_move

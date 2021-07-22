@@ -21,6 +21,8 @@ class Game:
         print("Game Score")
         print(f"Player 1 - Win: {self.p1.win} Loose: {self.p1.loose} Draw: {self.p1.draw}")
         print(f"Player 2 - Win: {self.p2.win} Loose: {self.p2.loose} Draw: {self.p1.draw}")
+
+    def print_winner(self):
         if self.p1.win > self.p2.win:
             print("Winner is Player1!")
         elif self.p2.win > self.p1.win:
@@ -52,11 +54,12 @@ class Game:
         for round in range(rounds):
             print(f"Round {round + 1}:")
             self.play_round()
-        self.game_score()
+            self.game_score()
+        self.print_winner()
         print("Game over!")
 
 
 if __name__ == '__main__':
     game = Game(player.HumanPlayer(),
-                random.choice([player.Player(), player.CyclePlayer(), player.ReflectPlayer(), player.RandomPlayer()]))
+                random.choice([player.Player(), player.CyclePlayer(), player.OppositePlayer(), player.RandomPlayer()]))
     game.play_game(4)

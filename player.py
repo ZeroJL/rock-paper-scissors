@@ -41,7 +41,7 @@ class HumanPlayer(Player):
         pass
 
 
-class ReflectPlayer(RandomPlayer):
+class OppositePlayer(RandomPlayer):
     def learn(self, my_move, their_move):
         self.next_move = self.move_dictionary.get(their_move)
 

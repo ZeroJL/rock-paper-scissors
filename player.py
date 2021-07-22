@@ -19,7 +19,8 @@ class Player:
 class RandomPlayer(Player):
     def __init__(self):
         super().__init__()
-        self.move_dictionary = {"rock": "paper", "paper": "scissors", "scissors": "rock"}
+        self.move_dictionary = \
+            {"rock": "paper", "paper": "scissors", "scissors": "rock"}
         self.next_move = random.choice(self.move_list)
 
     def move(self):
@@ -61,4 +62,3 @@ class CyclePlayer(RandomPlayer):
         self.round += 1
         if self.round > len(self.move_list):
             self.round = 0
-

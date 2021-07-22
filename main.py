@@ -20,8 +20,10 @@ class Game:
 
     def game_score(self):
         print("Game Score")
-        print(f"Player 1 - Win: {self.p1.win} Loose: {self.p1.loose} Draw: {self.p1.draw}")
-        print(f"Player 2 - Win: {self.p2.win} Loose: {self.p2.loose} Draw: {self.p1.draw}")
+        print(f"Player 1 - Win: {self.p1.win} "
+              f"Loose: {self.p1.loose} Draw: {self.p1.draw}")
+        print(f"Player 2 - Win: {self.p2.win} "
+              f"Loose: {self.p2.loose} Draw: {self.p1.draw}")
 
     def print_winner(self):
         if self.p1.win > self.p2.win:
